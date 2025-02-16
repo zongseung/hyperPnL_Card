@@ -26,6 +26,8 @@ share/python-wheels/
 *.egg
 hypurrquant-account-server/
 hypurrquant-fastapi/
+lib/python3.10/
+
 
 MANIFEST
 
