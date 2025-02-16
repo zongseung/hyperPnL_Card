@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperliquid Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="walletAddress" placeholder="Enter Wallet Address" />
+        <button onclick="fetchData()">Load Data</button>
+
+        <div class="dashboard">
+            <div class="card">
+                <h3>Overview</h3>
+                <p>Total Value: <span id="totalValue">-</span> USD</p>
+                <p>Perps: <span id="perpValue">-</span> USD</p>
+                <p>Spot: <span id="spotValue">-</span> USD</p>
+                <p>Vaults: <span id="vaultValue">-</span> USD</p>
+            </div>
+
+            <div class="card">
+                <h3>Infos</h3>
+                <p>Address: <span id="walletInfo">-</span></p>
+                <button onclick="copyAddress()">Copy</button>
+            </div>
+
+            <div class="card">
+                <h3>Holdings</h3>
+                <canvas id="holdingsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('perps')">Perps</button>
+            <button class="tab-button" onclick="showTab('spot')">Holdings</button>
+        </div>
+
+        <div class="tab-content" id="perps">
+            <h3>Perpetual Positions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Side</th>
+                        <th>Leverage</th>
+                        <th>Value</th>
+                        <th>Amount</th>
+                        <th>Entry</th>
+                        <th>Price</th>
+                        <th>PnL</th>
+                        <th>Funding</th>
+                    </tr>
+                </thead>
+                <tbody id="positions"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-content hidden" id="spot">
+            <h3>Spot Holdings</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Amount</th>
+                        <th>USD Value</th>
+                    </tr>
+                </thead>
+                <tbody id="spotAssets"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
