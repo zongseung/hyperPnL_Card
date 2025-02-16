@@ -24,6 +24,9 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+hypurrquant-account-server/
+hypurrquant-fastapi/
+
 MANIFEST
 
 # PyInstaller
